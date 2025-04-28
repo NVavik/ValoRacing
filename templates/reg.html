@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Регистрация</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
+    <style>
+        body {
+            background-image: url('static/data/fon.jpg');
+            background-size: cover; /* Увеличивает изображение, чтобы заполнить весь экран */
+            color: white; /* Измените цвет текста, если необходимо */
+        }
+        .btn-disabled {
+            opacity: 0.65;
+            cursor: not-allowed;
+        }
+        .gradient {
+            background: linear-gradient(90deg, #FF0000, #0000FF);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            font-weight: 800;
+            text-shadow: 0 0 8px rgba(230, 0, 0, 0.3);
+            letter-spacing: 1px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container-md">
+        <h1 class="text-center mb-4"><span class="gradient">Valo Racing</span></h1>
+        <h2 class="text-center">Регистрация</h2>
+        <form class="row g-3" action="/reg" method="POST">
+            <div class="col-md-4">
+                <label for="validationDefault01" class="form-label">Имя</label>
+                <input type="text" name="firstName" class="form-control" id="validationDefault01" required>
+            </div>
+            <div class="col-md-4">
+                <label for="validationDefault02" class="form-label">Фамилия</label>
+                <input type="text" name="lastName" class="form-control" id="validationDefault02" required>
+            </div>
+            <div class="col-md-4">
+                <label for="validationDefaultUsername" class="form-label">Никнейм</label>
+                <div class="input-group">
+                    <span class="input-group-text" id="inputGroupPrepend">@</span>
+                    <input type="text" name="username" class="form-control" id="validationDefaultUsername" aria-describedby="inputGroupPrepend" required>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <label for="validationDefaultEmail" class="form-label">Email</label>
+                <input type="email" name="email" class="form-control" id="validationDefaultEmail" required>
+            </div>
+            <div class="col-md-4">
+                <label for="validationDefaultPassword" class="form-label">Пароль</label>
+                <input type="password" name="password" class="form-control" id="validationDefaultPassword" required>
+            </div>
+            <div class="col-md-4">
+                <label for="validationDefaultConfirmPassword" class="form-label">Подтверждение пароля</label>
+                <input type="password" name="confirmPassword" class="form-control" id="validationDefaultConfirmPassword" required>
+            </div>
+            <div class="col-md-6">
+                <label for="validationDefault03" class="form-label">Город</label>
+                <input type="text" name="city" class="form-control" id="validationDefault03" required>
+            </div>
+            <div class="col-md-3">
+                <label for="validationDefault05" class="form-label">Почтовый код</label>
+                <input type="text" name="postalCode" class="form-control" id="validationDefault05" required>
+            </div>
+            <div class="col-12">
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" value="" id="invalidCheck2" required>
+                  <label class="form-check-label" for="invalidCheck2">
+                    Agree to terms and conditions
+                  </label>
+                </div>
+            </div>
+            <div class="col-12">
+                <button type="submit" class="btn btn-success">Зарегистрироваться</button>
+            </div>
+        </form>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js" integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq" crossorigin="anonymous"></script>
+</body>
+</html>

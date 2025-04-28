@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Valo Racing</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <nav class="navbar bg-dark navbar-expand-lg" data-bs-theme="dark">
+        <div class="container-md">
+            <a class="navbar-brand" href="#">Valo Racing</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Статьи и новости</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Симрейсинг
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Бандлы</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="#">Рулевые базы</a></li>
+                            <li><a class="dropdown-item" href="#">Рули и штурвалы</a></li>
+                            <li><a class="dropdown-item" href="#">Педали</a></li>
+                            <li><a class="dropdown-item" href="#">Аксессуары</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="#">Кокпиты</a></li>
+                            <li><a class="dropdown-item" href="#">Экипировка</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link disabled" aria-disabled="true">Аренда симулятора</a>
+                    </li>
+                </ul>
+                {% if session.get('username') %}
+                <span class="navbar-text text-white me-2">{{ session['username'] }}</span>
+                <button  class="btn btn-outline-danger ms-1">
+                    <a href="/logout" style="text-decoration: none;">Выйти</a>
+                </button>
+                {% else %}
+                <button class="btn btn-outline-success ms-1" type="button">
+                    <a href="/login" style="text-decoration: none; color: white;">Войти</a>
+                </button>
+                <button class="btn btn-outline-light ms-1" type="button">
+                    <a href="/reg" style="text-decoration: none; color: yellow;">Зарегистрироваться</a>
+                </button>
+                {% endif %}
+            </div>
+        </div>
+    </nav>
+    <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="static/data/trak.jpg" class="d-block w-100" alt="...">
+            </div>
+            <div class="carousel-item">
+                <img src="static/data/fanatecgtdd.jpg" class="d-block w-100" alt="...">
+            </div>
+            <div class="carousel-item">
+                <img src="static/data/simaevo.png" class="d-block w-100" alt="...">
+            </div>
+            <div class="carousel-item">
+                <img src="static/data/conspit.jpg" class="d-block w-100" alt="...">
+            </div>
+            <div class="carousel-item">
+                <img src="static/data/moza.jpg" class="d-block w-100" alt="...">
+            </div>
+            <div class="carousel-item">
+                <img src="static/data/simagicp500.jpg" class="d-block w-100" alt="...">
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+    <div class="container my-4 ">
+        <div class="row">
+            <div class="col-md-4 text-center">
+                <h4>Рули/штурвалы</h4>
+                <a href="#" class="btn btn-link"><img src="static/data/conspit290.png" class="img-fluid" alt="Steering Wheels"></a>
+            </div>
+            <div class="col-md-4 text-center">
+                <h4>Рулевые базы</h4>
+                <a href="#" class="btn btn-link"><img src="static/data/simucube2ultimate.png" class="img-fluid" alt="Wheel Bases"></a>
+            </div>
+            <div class="col-md-4 text-center">
+                <h4>Бандлы</h4>
+                <a href="#" class="btn btn-link"><img src="static/data/mozar5.png" class="img-fluid" alt="Bundles"></a>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-3 text-center">
+                <h4>Кокпиты/Стойки</h4>
+                <a href="#" class="btn btn-link"><img src="static/data/fanatecgtcockpit.png" class="img-fluid" alt="Cockpits"></a>
+            </div>
+            <div class="col-md-3 text-center">
+                <h4>Педали</h4>
+                <a href="#" class="btn btn-link"><img src="static/data/simucubeactpedal.png" class="img-fluid" alt="Pedals"></a>
+            </div>
+            <div class="col-md-3 text-center">
+                <h4>Аксессуары</h4>
+                <a href="#" class="btn btn-link"><img src="static/data/addon.png" class="img-fluid" alt="Add-On"></a>
+            </div>
+            <div class="col-md-3 text-center">
+                <h4>Экипировка</h4>
+                <a href="#" class="btn btn-link"><img src="static/data/sglovesboots.png" class="img-fluid" alt="Equipment"></a>
+            </div>
+        </div>
+    </div>
+    <footer class="bg-dark text-light py-4 text-center">
+        <div class="container-md">
+            <div class="row">
+                <div class="col-md-4">
+                    <h5><a href="/about" class="text-light">О компании</a></h5>
+                    <p>Valo Racing - ваш надежный партнер в мире симрейсинга. Мы предлагаем широкий ассортимент оборудования и аксессуаров для симрейсинга.</p>
+                </div>
+                <div class="col-md-4">
+                    <h5>Каталог</h5>
+                    <p>Бандлы<br>Рулевые базы<br>Рули и штурвалы<br>Педали<br>Кокпиты<br>Аксессуары<br>Экипировка</p>
+                </div>
+                <div class="col-md-4">
+                    <h5>Адрес</h5>
+                    <p>ул. Макса Ферстаппена, 33, Новосибирск, Россия<br>Часы работы: Пн-Пт 9:00 - 18:00</p>
+                </div>
+            </div>
+            <div class="row mt-3">
+                <div class="col-md-4">
+                    <h5>Как купить</h5>
+                    <p>Условия оплаты<br>Условия доставки<br>Гарантия</p>
+                </div>
+                <div class="col-md-4">
+                    <h5>Аренда симуляторов</h5>
+                    <p>MOZA R5<br>Fanatec GT DD Pro<br>Simagic Alpha + FX-C...</p>
+                </div>
+                <div class="col-md-4">
+                    <h5>Контакты</h5>
+                    <p>Email: info@valoracing.com<br>📱 +7 (991) 163-44-33<br>📱 +7 (478) 144-11-31</p>
+                </div>
+            </div>
+            <div class="text-center mt-4">
+                <p>&copy; 2025 Valo Racing. Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js" integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq" crossorigin="anonymous"></script>
+</body>
+</html>
