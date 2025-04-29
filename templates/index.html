@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
 </head>
 <body>
-    <nav class="navbar bg-dark navbar-expand-lg" data-bs-theme="dark">
+    <nav class="navbar fixed-top bg-dark navbar-expand-lg" data-bs-theme="dark">
         <div class="container-md">
             <a class="navbar-brand" href="#">Valo Racing</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -23,15 +23,15 @@
                         Симрейсинг
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">Бандлы</a></li>
+                            <li><a class="dropdown-item" href="/bundles">Бандлы</a></li>
                             <li><hr class="dropdown-divider"></li>
-                            <li><a class="dropdown-item" href="#">Рулевые базы</a></li>
-                            <li><a class="dropdown-item" href="#">Рули и штурвалы</a></li>
-                            <li><a class="dropdown-item" href="#">Педали</a></li>
-                            <li><a class="dropdown-item" href="#">Аксессуары</a></li>
+                            <li><a class="dropdown-item" href="/wheelbase">Рулевые базы</a></li>
+                            <li><a class="dropdown-item" href="/wheels">Рули и штурвалы</a></li>
+                            <li><a class="dropdown-item" href="/pedals">Педали</a></li>
+                            <li><a class="dropdown-item" href="/addons">Аксессуары</a></li>
                             <li><hr class="dropdown-divider"></li>
-                            <li><a class="dropdown-item" href="#">Кокпиты</a></li>
-                            <li><a class="dropdown-item" href="#">Экипировка</a></li>
+                            <li><a class="dropdown-item" href="/cockpits">Кокпиты</a></li>
+                            <li><a class="dropdown-item" href="/equip">Экипировка</a></li>
                         </ul>
                     </li>
                     <li class="nav-item">
@@ -88,33 +88,33 @@
         <div class="row">
             <div class="col-md-4 text-center">
                 <h4>Рули/штурвалы</h4>
-                <a href="#" class="btn btn-link"><img src="static/data/conspit290.png" class="img-fluid" alt="Steering Wheels"></a>
+                <a href="/bundles" class="btn btn-link"><img src="static/data/conspit290.png" class="img-fluid" alt="Steering Wheels"></a>
             </div>
             <div class="col-md-4 text-center">
                 <h4>Рулевые базы</h4>
-                <a href="#" class="btn btn-link"><img src="static/data/simucube2ultimate.png" class="img-fluid" alt="Wheel Bases"></a>
+                <a href="/wheelbase" class="btn btn-link"><img src="static/data/simucube2ultimate.png" class="img-fluid" alt="Wheel Bases"></a>
             </div>
             <div class="col-md-4 text-center">
                 <h4>Бандлы</h4>
-                <a href="#" class="btn btn-link"><img src="static/data/mozar5.png" class="img-fluid" alt="Bundles"></a>
+                <a href="/bundles" class="btn btn-link"><img src="static/data/mozar5.png" class="img-fluid" alt="Bundles"></a>
             </div>
         </div>
         <div class="row">
             <div class="col-md-3 text-center">
                 <h4>Кокпиты/Стойки</h4>
-                <a href="#" class="btn btn-link"><img src="static/data/fanatecgtcockpit.png" class="img-fluid" alt="Cockpits"></a>
+                <a href="/cockpits" class="btn btn-link"><img src="static/data/fanatecgtcockpit.png" class="img-fluid" alt="Cockpits"></a>
             </div>
             <div class="col-md-3 text-center">
                 <h4>Педали</h4>
-                <a href="#" class="btn btn-link"><img src="static/data/simucubeactpedal.png" class="img-fluid" alt="Pedals"></a>
+                <a href="/pedals" class="btn btn-link"><img src="static/data/simucubeactpedal.png" class="img-fluid" alt="Pedals"></a>
             </div>
             <div class="col-md-3 text-center">
                 <h4>Аксессуары</h4>
-                <a href="#" class="btn btn-link"><img src="static/data/addon.png" class="img-fluid" alt="Add-On"></a>
+                <a href="/addons" class="btn btn-link"><img src="static/data/addon.png" class="img-fluid" alt="Add-On"></a>
             </div>
             <div class="col-md-3 text-center">
                 <h4>Экипировка</h4>
-                <a href="#" class="btn btn-link"><img src="static/data/sglovesboots.png" class="img-fluid" alt="Equipment"></a>
+                <a href="/equip" class="btn btn-link"><img src="static/data/sglovesboots.png" class="img-fluid" alt="Equipment"></a>
             </div>
         </div>
     </div>

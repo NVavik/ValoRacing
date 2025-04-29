@@ -109,14 +109,14 @@ def login():
         user = cursor.fetchone()
 
         if user:
-            session['user_id'] = user['id']  # Сохраняем ID пользователя в сессии
+            session['user_id'] = user['id']
             session['username'] = user['username']
             return redirect(url_for('index'))
         else:
             return render_template('login.html', error="Неверные учетные данные")
 
     # Проверяем, есть ли сообщение об успешной регистрации
-    message = session.pop('message', None)  # Извлекаем сообщение и удаляем его из сессии
+    message = session.pop('message', None)
     return render_template('login.html', message=message)
 
 @app.route('/logout')
