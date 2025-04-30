@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Бандлы</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <nav class="navbar fixed-top bg-dark navbar-expand-lg" data-bs-theme="dark">
+        <div class="container-md">
+            <a class="navbar-brand" href="/">Valo Racing</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Статьи и новости</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Симрейсинг
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="/bundles">Бандлы</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="/wheelbase">Рулевые базы</a></li>
+                            <li><a class="dropdown-item" href="/wheels">Рули и штурвалы</a></li>
+                            <li><a class="dropdown-item" href="/pedals">Педали</a></li>
+                            <li><a class="dropdown-item" href="/addons">Аксессуары</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="/cockpits">Кокпиты</a></li>
+                            <li><a class="dropdown-item" href="/equip">Экипировка</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link disabled" aria-disabled="true">Аренда симулятора</a>
+                    </li>
+                </ul>
+                {% if session.get('username') %}
+                <span class="navbar-text text-white me-2">{{ session['username'] }}</span>
+                <button  class="btn btn-outline-danger ms-1">
+                    <a href="/logout" style="text-decoration: none;">Выйти</a>
+                </button>
+                {% else %}
+                <button class="btn btn-outline-success ms-1" type="button">
+                    <a href="/login" style="text-decoration: none; color: white;">Войти</a>
+                </button>
+                <button class="btn btn-outline-light ms-1" type="button">
+                    <a href="/reg" style="text-decoration: none; color: yellow;">Зарегистрироваться</a>
+                </button>
+                {% endif %}
+            </div>
+        </div>
+    </nav>
+    <footer class="bg-dark text-light py-4 text-center">
+        <div class="container-md">
+            <div class="row">
+                <div class="col-md-4">
+                    <h5><a href="/about" class="text-light">О компании</a></h5>
+                    <p>Valo Racing - ваш надежный партнер в мире симрейсинга. Мы предлагаем широкий ассортимент оборудования и аксессуаров для симрейсинга.</p>
+                </div>
+                <div class="col-md-4">
+                    <h5>Каталог</h5>
+                    <p>Бандлы<br>Рулевые базы<br>Рули и штурвалы<br>Педали<br>Кокпиты<br>Аксессуары<br>Экипировка</p>
+                </div>
+                <div class="col-md-4">
+                    <h5>Адрес</h5>
+                    <p>ул. Макса Ферстаппена, 33, Новосибирск, Россия<br>Часы работы: Пн-Пт 9:00 - 18:00</p>
+                </div>
+            </div>
+            <div class="row mt-3">
+                <div class="col-md-4">
+                    <h5>Как купить</h5>
+                    <p>Условия оплаты<br>Условия доставки<br>Гарантия</p>
+                </div>
+                <div class="col-md-4">
+                    <h5>Аренда симуляторов</h5>
+                    <p>MOZA R5<br>Fanatec GT DD Pro<br>Simagic Alpha + FX-C...</p>
+                </div>
+                <div class="col-md-4">
+                    <h5>Контакты</h5>
+                    <p>Email: info@valoracing.com<br>📱 +7 (991) 163-44-33<br>📱 +7 (478) 144-11-31</p>
+                </div>
+            </div>
+            <div class="text-center mt-4">
+                <p>&copy; 2025 Valo Racing. Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js" integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq" crossorigin="anonymous"></script>
+</body>
+</html>
