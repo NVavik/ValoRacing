@@ -1,10 +1,265 @@
 <!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Аксессуары</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 <body>
+    <nav class="navbar fixed-top bg-dark navbar-expand-lg" data-bs-theme="dark">
+        <div class="container-md">
+            <a class="navbar-brand" href="/">Valo Racing</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Статьи и новости</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Симрейсинг
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="/bundles">Бандлы</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="/wheelbase">Рулевые базы</a></li>
+                            <li><a class="dropdown-item" href="/wheels">Рули и штурвалы</a></li>
+                            <li><a class="dropdown-item" href="/pedals">Педали</a></li>
+                            <li><a class="dropdown-item" href="/addons">Аксессуары</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="/cockpits">Кокпиты</a></li>
+                            <li><a class="dropdown-item" href="/equip">Экипировка</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link disabled" aria-disabled="true">Аренда симулятора</a>
+                    </li>
+                </ul>
+                {% if session.get('username') %}
+                <span class="navbar-text text-white me-2">{{ session['username'] }}</span>
+                <button  class="btn btn-outline-danger ms-1">
+                    <a href="/logout" style="text-decoration: none;">Выйти</a>
+                </button>
+                {% else %}
+                <button class="btn btn-outline-success ms-1" type="button">
+                    <a href="/login" style="text-decoration: none; color: white;">Войти</a>
+                </button>
+                <button class="btn btn-outline-light ms-1" type="button">
+                    <a href="/reg" style="text-decoration: none; color: yellow;">Зарегистрироваться</a>
+                </button>
+                {% endif %}
+            </div>
+        </div>
+    </nav>
+    <h1 class="text-center mt-5">Аксессуары</h1>
+    <div class="container my-4">
+        <div class="row">
+            <div class="col-md-3">  <!-- Меню слева -->
+                <h5>Каталог</h5>
+                <ul class="list-group fixed-left">
+                    <li><a class="list-group-item" href="/bundles">Бандлы</a></li>
+                    <li><a class="list-group-item" href="/wheelbase">Рулевые базы</a></li>
+                    <li><a class="list-group-item" href="/wheels">Рули и штурвалы</a></li>
+                    <li><a class="list-group-item" href="/pedals"> Педали</a></li>
+                    <li><a class="list-group-item" href="/addons" style="color: red;">Аксессуары</a></li>
+                    <li><a class="list-group-item" href="/cockpits">Кокпиты</a></li>
+                    <li><a class="list-group-item" href="/equip">Экипировка</a></li>
+                </ul>
+                <h5 class="mt-4">Фильтры</h5>
+                <div class="list-group">
+                    <div class="list-group-item">
+                        <h6>Производитель</h6>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="brand" id="brandAll" value="all" checked onchange="applyFilter()">
+                            <label class="form-check-label" for="brandAll">Все</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="brand" id="brandMoza" value="moza" onchange="applyFilter()">
+                            <label class="form-check-label" for="brandMoza">Moza</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="brand" id="brandSimagic" value="simagic" onchange="applyFilter()">
+                            <label class="form-check-label" for="brandSimagic">Simagic</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="brand" id="brandConspit" value="conspit" onchange="applyFilter()">
+                            <label class="form-check-label" for="brandConspit">Conspit</label>
+                        </div>
+                    </div>
+                    <div class="list-group-item d-flex align-items-center">
+                        <div class="me-2">
+                            <input type="number" id="priceFrom" class="form-control" placeholder="Цена" oninput="applyFilter()">
+                        </div>
+                        <div>
+                            <input type="number" id="priceTo" class="form-control" placeholder="До" oninput="applyFilter()">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-9">
+                <div class="row row-cols-1 row-cols-md-3 g-4">
+                    <div class="col">
+                        <div class="card">
+                            <img src="static/data/bundles/mozar5.jpg" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <h5 class="card-title">MOZA R5</h5>
+                                <p class="card-text">46 000 руб.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card">
+                            <img src="static/data/bundles/mozar3.jpg" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <h5 class="card-title">MOZA R3 (PC Only)</h5>
+                                <p class="card-text">33 000 руб.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card">
+                            <img src="static/data/bundles/mozar3xb.jpg" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <h5 class="card-title">MOZA R3 (PC/XBOX)</h5>
+                                <p class="card-text">44 200 руб.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card">
+                            <img src="static/data/bundles/mozar5trk.jpg" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <h5 class="card-title">MOZA Racing Truck R5</h5>
+                                <p class="card-text">60 000 руб.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card">
+                            <img src="static/data/bundles/conspit290gp.jpg" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <h5 class="card-title">Conspit Ares 290GP</h5>
+                                <p class="card-text">154 000 руб.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card">
+                            <img src="static/data/bundles/conspitrx320.jpg" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <h5 class="card-title">Conspit Ares Platinum RX320</h5>
+                                <p class="card-text">160 000 руб.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card">
+                            <img src="static/data/bundles/evogtpro.jpg" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <h5 class="card-title">Simagic Alpha EVO GT Pro Leather + P1000-RS</h5>
+                                <p class="card-text">143 000 руб.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card">
+                            <img src="static/data/bundles/evosportgtneo.jpg" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <h5 class="card-title">Simagic Alpha EVO Sport GT Neo</h5>
+                                <p class="card-text">78 000 руб.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card">
+                            <img src="static/data/bundles/alphagt4.png" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <h5 class="card-title">Simagic Alpha GT4 + P2000-R</h5>
+                                <p class="card-text">191 000 руб.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer class="bg-dark text-light py-4 text-center">
+        <div class="container-md">
+            <div class="row">
+                <div class="col-md-4">
+                    <h5><a href="/about" class="text-light">О компании</a></h5>
+                    <p>Valo Racing - ваш надежный партнер в мире симрейсинга. Мы предлагаем широкий ассортимент оборудования и аксессуаров для симрейсинга.</p>
+                </div>
+                <div class="col-md-4">
+                    <h5>Каталог</h5>
+                    <p>Бандлы<br>Рулевые базы<br>Рули и штурвалы<br>Педали<br>Кокпиты<br>Аксессуары<br>Экипировка</p>
+                </div>
+                <div class="col-md-4">
+                    <h5>Адрес</h5>
+                    <p>ул. Макса Ферстаппена, 33, Новосибирск, Россия<br>Часы работы: Пн-Пт 9:00 - 18:00</p>
+                </div>
+            </div>
+            <div class="row mt-3">
+                <div class="col-md-6">
+                    <h5>Аренда симуляторов</h5>
+                    <p>MOZA R5<br>Fanatec GT DD Pro<br>Simagic Alpha + FX-C...</p>
+                </div>
+                <div class="col-md-6">
+                    <h5>Контакты</h5>
+                    <p>Email: info@valoracing.com<br>📱 +7 (991) 163-44-33<br>📱 +7 (478) 144-11-31</p>
+                </div>
+            </div>
+            <div class="text-center mt-4">
+                <p>&copy; 2025 Valo Racing. Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js" integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq" crossorigin="anonymous"></script>
+    <script>
+        function applyFilter() {
+            const priceFrom = parseFloat(document.getElementById('priceFrom').value) || 0;
+            const priceTo = parseFloat(document.getElementById('priceTo').value) || Infinity;
+            const cards = document.querySelectorAll('.col');
 
+            cards.forEach(card => {
+                const priceText = card.querySelector('.card-text').textContent;
+                const price = parseFloat(priceText.replace(/[^\d,]/g, '').replace(',', '.'));
+
+                if (price >= priceFrom && price <= priceTo) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+        function applyFilter() {
+            const priceFrom = parseFloat(document.getElementById('priceFrom').value) || 0;
+            const priceTo = parseFloat(document.getElementById('priceTo').value) || Infinity;
+            const selectedBrand = document.querySelector('input[name="brand"]:checked')?.value || 'all';
+            const cards = document.querySelectorAll('.col');
+
+            cards.forEach(card => {
+                const priceText = card.querySelector('.card-text').textContent;
+                const price = parseFloat(priceText.replace(/[^\d,]/g, '').replace(',', '.'));
+                const title = card.querySelector('.card-title').textContent.toLowerCase();
+                const priceMatch = price >= priceFrom && price <= priceTo;
+                let brandMatch = true;
+
+                if (selectedBrand !== 'all') {
+                    brandMatch = title.includes(selectedBrand.toLowerCase());
+                }
+
+                if (priceMatch && brandMatch) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+    </script>
 </body>
 </html>

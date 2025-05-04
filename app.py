@@ -4,7 +4,7 @@ import hashlib
 import os
 
 app = Flask(__name__)
-app.secret_key = 'your_secret_key_here'  # Для работы с сессиями
+app.secret_key = 'your_secret_key_here'
 DATABASE = 'users.db'
 
 
