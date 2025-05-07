@@ -37,7 +37,7 @@
                         </ul>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link disabled" aria-disabled="true">Аренда симулятора</a>
+                        <a class="nav-link" href="/rent">Аренда симулятора</a>
                     </li>
                 </ul>
                 {% if session.get('username') %}
@@ -103,87 +103,18 @@
             </div>
             <div class="col-md-9">
                 <div class="row row-cols-1 row-cols-md-3 g-4">
-                    <div class="col">
+                    {% for product in products if product.category == 'bundles' %}
+                    <div class="col" data-brand="{{ product.brand|lower }}" data-price="{{ product.price }}">
                         <div class="card">
-                            <img src="static/data/bundles/mozar5.jpg" class="card-img-top" alt="...">
+                            <img src="{{ url_for('static', filename='data/' + product.image) }}" class="card-img-top" alt="...">
                             <div class="card-body">
-                                <h5 class="card-title">MOZA R5</h5>
-                                <p class="card-text">46 000 руб.</p>
+                                <h5 class="card-title">{{ product.title }}</h5>
+                                <p class="card-text">{{ product.price|int }} руб.</p>
+                                <small class="text-muted">{{ product.brand|upper }}</small>
                             </div>
                         </div>
                     </div>
-                    <div class="col">
-                        <div class="card">
-                            <img src="static/data/bundles/mozar3.jpg" class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <h5 class="card-title">MOZA R3 (PC Only)</h5>
-                                <p class="card-text">33 000 руб.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="card">
-                            <img src="static/data/bundles/mozar3xb.jpg" class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <h5 class="card-title">MOZA R3 (PC/XBOX)</h5>
-                                <p class="card-text">44 200 руб.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="card">
-                            <img src="static/data/bundles/mozar5trk.jpg" class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <h5 class="card-title">MOZA Racing Truck R5</h5>
-                                <p class="card-text">60 000 руб.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="card">
-                            <img src="static/data/bundles/conspit290gp.jpg" class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <h5 class="card-title">Conspit Ares 290GP</h5>
-                                <p class="card-text">154 000 руб.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="card">
-                            <img src="static/data/bundles/conspitrx320.jpg" class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <h5 class="card-title">Conspit Ares Platinum RX320</h5>
-                                <p class="card-text">160 000 руб.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="card">
-                            <img src="static/data/bundles/evogtpro.jpg" class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <h5 class="card-title">Simagic Alpha EVO GT Pro Leather + P1000-RS</h5>
-                                <p class="card-text">143 000 руб.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="card">
-                            <img src="static/data/bundles/evosportgtneo.jpg" class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <h5 class="card-title">Simagic Alpha EVO Sport GT Neo</h5>
-                                <p class="card-text">78 000 руб.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="card">
-                            <img src="static/data/bundles/alphagt4.png" class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <h5 class="card-title">Simagic Alpha GT4 + P2000-R</h5>
-                                <p class="card-text">191 000 руб.</p>
-                            </div>
-                        </div>
-                    </div>
+                    {% endfor %}
                 </div>
             </div>
         </div>
@@ -196,8 +127,8 @@
                     <p>Valo Racing - ваш надежный партнер в мире симрейсинга. Мы предлагаем широкий ассортимент оборудования и аксессуаров для симрейсинга.</p>
                 </div>
                 <div class="col-md-4">
-                    <h5>Каталог</h5>
-                    <p>Бандлы<br>Рулевые базы<br>Рули и штурвалы<br>Педали<br>Кокпиты<br>Аксессуары<br>Экипировка</p>
+                    <h5>Аренда симуляторов</h5>
+                    <p>MOZA R5<br>MOZA R3 XBOX<br>Cammus C5</p>
                 </div>
                 <div class="col-md-4">
                     <h5>Адрес</h5>
@@ -206,8 +137,8 @@
             </div>
             <div class="row mt-3">
                 <div class="col-md-6">
-                    <h5>Аренда симуляторов</h5>
-                    <p>MOZA R5<br>Fanatec GT DD Pro<br>Simagic Alpha + FX-C...</p>
+                    <h5>Как купить</h5>
+                    <p><a href="#"><img src="static/data/svg/whatsapp.svg"></a><a href="#"><img src="static/data/svg/telegram.svg"></a><br>+7 (991) 163-44-33</p>
                 </div>
                 <div class="col-md-6">
                     <h5>Контакты</h5>

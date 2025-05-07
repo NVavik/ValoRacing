@@ -2,6 +2,7 @@ from flask import Flask, render_template, request, redirect, url_for, g, session
 import sqlite3
 import hashlib
 import os
+import json
 
 app = Flask(__name__)
 app.secret_key = 'your_secret_key_here'
@@ -126,7 +127,13 @@ def logout():
 
 @app.route('/bundles')
 def bundles():
-    return render_template('bundles.html')
+    try:
+        with open('static/data/products.json', 'r', encoding='utf-8') as f:
+            products = json.load(f)
+    except (FileNotFoundError, json.JSONDecodeError) as e:
+        print(f"Error loading products: {str(e)}")
+        products = []
+    return render_template('bundles.html', products=products, current_category='bundles')
 
 
 @app.route('/wheelbase')
@@ -157,6 +164,10 @@ def cockpits():
 @app.route('/equip')
 def equip():
     return render_template('equip.html')
+
+@app.route('/rent')
+def rent():
+    return render_template('rent.html')
 
 
 @app.route('/about')

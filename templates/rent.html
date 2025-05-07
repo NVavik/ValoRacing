@@ -2,7 +2,7 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <title>Valo Racing</title>
+    <title>Аренда симуляторов</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
     <link rel="stylesheet" href="static/css/style.css">
     <link rel="shortcut icon" href="static/data/svg/helmet.png"/>
@@ -36,7 +36,7 @@
                         </ul>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/rent">Аренда симулятора</a>
+                        <a class="nav-link active" href="/rent">Аренда симулятора</a>
                     </li>
                 </ul>
                 {% if session.get('username') %}
@@ -55,67 +55,69 @@
             </div>
         </div>
     </nav>
-    <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
-        <div class="carousel-inner">
-            <div class="carousel-item active">
-                <img src="static/data/trak.jpg" class="d-block w-100" alt="...">
+    <h1 class="text-center mt-5">Аренда симуляторов</h1>
+    <div class="container my-4">
+        <div class="row row-cols-1 row-cols-md-3 g-4">
+            <div class="col">
+                <div class="card h-100">
+                    <img src="static/data/bundles/mozar5.jpg" class="card-img-top" alt="MOZA R5">
+                    <div class="card-body">
+                        <h5 class="card-title">MOZA R5 Bundle</h5>
+                        <p class="card-text">
+                            <span class="fw-bold">1600 руб/день</span><br>
+                            Direct Drive R5 5Nm, педали SR-P Lite, руль ES, совместимо с ПК
+                        </p>
+                    </div>
+                </div>
             </div>
-            <div class="carousel-item">
-                <img src="static/data/fanatecgtdd.jpg" class="d-block w-100" alt="...">
+            <div class="col">
+                <div class="card h-100">
+                    <img src="static/data/bundles/mozar3xb.jpg" class="card-img-top" alt="MOZA R5">
+                    <div class="card-body">
+                        <h5 class="card-title">MOZA R3 XBOX</h5>
+                        <p class="card-text">
+                            <span class="fw-bold">1500 руб/день</span><br>
+                            Direct Drive база R3 3Nm, педали SR-P Lite, руль ESX, совместимо с ПК/XBOX
+                        </p>
+                    </div>
+                </div>
             </div>
-            <div class="carousel-item">
-                <img src="static/data/simaevo.png" class="d-block w-100" alt="...">
-            </div>
-            <div class="carousel-item">
-                <img src="static/data/conspit.jpg" class="d-block w-100" alt="...">
-            </div>
-            <div class="carousel-item">
-                <img src="static/data/moza.jpg" class="d-block w-100" alt="...">
-            </div>
-            <div class="carousel-item">
-                <img src="static/data/simagicp500.jpg" class="d-block w-100" alt="...">
-            </div>
-        </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
-        </button>
-    </div>
-    <div class="container my-4 ">
-        <div class="row">
-            <div class="col-md-4 text-center">
-                <h4>Рули/штурвалы</h4>
-                <a href="/bundles" class="btn btn-link"><img src="static/data/conspit290.png" class="img-fluid" alt="Steering Wheels"></a>
-            </div>
-            <div class="col-md-4 text-center">
-                <h4>Рулевые базы</h4>
-                <a href="/wheelbase" class="btn btn-link"><img src="static/data/simucube2ultimate.png" class="img-fluid" alt="Wheel Bases"></a>
-            </div>
-            <div class="col-md-4 text-center">
-                <h4>Бандлы</h4>
-                <a href="/bundles" class="btn btn-link"><img src="static/data/mozar5.png" class="img-fluid" alt="Bundles"></a>
+            <div class="col">
+                <div class="card h-100">
+                    <img src="static/data/bundles/cammusc5.jpg" class="card-img-top" alt="Simagic Alpha">
+                    <div class="card-body">
+                        <h5 class="card-title">Cammus C5</h5>
+                        <p class="card-text">
+                            <span class="fw-bold">900 руб/день</span><br>
+                            Direct Drive база с обратной связью 5Nm, совместимо с ПК
+                        </p>
+                    </div>
+                </div>
             </div>
         </div>
-        <div class="row">
-            <div class="col-md-3 text-center">
-                <h4>Кокпиты/Стойки</h4>
-                <a href="/cockpits" class="btn btn-link"><img src="static/data/fanatecgtcockpit.png" class="img-fluid" alt="Cockpits"></a>
+
+        <div class="row mt-5">
+            <div class="col-md-6">
+                <h3 class="text-primary">Условия аренды</h3>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">✅ Первый день - бесплатно!</li>
+                    <li class="list-group-item">✅ Минимальный срок - 3 дня</li>
+                    <li class="list-group-item">✅ Залог 50% от стоимости оборудования в случае поломки по вашей вине</li>
+                    <li class="list-group-item">✅ Бесплатная доставка по Новосибирску</li>
+                    <li class="list-group-item">✅ С нас нструктаж и настройка</li>
+                </ul>
             </div>
-            <div class="col-md-3 text-center">
-                <h4>Педали</h4>
-                <a href="/pedals" class="btn btn-link"><img src="static/data/simucubeactpedal.png" class="img-fluid" alt="Pedals"></a>
-            </div>
-            <div class="col-md-3 text-center">
-                <h4>Аксессуары</h4>
-                <a href="/addons" class="btn btn-link"><img src="static/data/addon.png" class="img-fluid" alt="Add-On"></a>
-            </div>
-            <div class="col-md-3 text-center">
-                <h4>Экипировка</h4>
-                <a href="/equip" class="btn btn-link"><img src="static/data/sglovesboots.png" class="img-fluid" alt="Equipment"></a>
+
+            <div class="col-md-6">
+                <h3 class="text-primary">Как забронировать</h3>
+                <div class="card">
+                    <div class="card-body">
+                        <p>📞 +7 (991) 163-44-33 <a href="#"><img src="static/data/svg/whatsapp.svg"></a><a href="#"><img src="static/data/svg/telegram.svg"></a></p>
+                        <p>✉️ info@valoracing.com</p>
+                        <p>📍 Самовывоз: г. Новосибирск ул. Макса Ферстаппена, 33</p>
+                        <a href="#" class="btn btn-success mt-3">Оставить заявку</a>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

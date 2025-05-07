@@ -10,6 +10,15 @@ header {
     text-align: center;
 }
 
+.carousel-item {
+    height: 911px;
+}
+
+.carousel-item img {
+    height: 100%;
+    width: 100%;
+}
+
 nav ul {
     list-style: none;
     padding: 0;
