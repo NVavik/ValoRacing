@@ -1,0 +1,87 @@
+[
+    {
+        "id": 1,
+        "category": "bundles",
+        "title": "MOZA R5",
+        "price": 44200,
+        "image": "bundles/mozar5.jpg",
+        "brand": "moza",
+        "description": "Полный набор для начинающих с рулевой базой 5 Нм, педалями SR-P Lite и рулём ES. Совместимо с ПК, а также можно прикрепить к столу."
+        
+    },
+    {
+        "id": 2,
+        "category": "bundles",
+        "title": "MOZA R3 (PC Only)",
+        "price": 33000,
+        "image": "bundles/mozar3.jpg",
+        "brand": "moza",
+        "description": "Бюджетный набор для начинающих с рулевой базой 3 Нм, педалями SR-P Lite и рулём ES. Совместимо с ПК, а также можно прикрепить к столу."
+    },
+    {
+        "id": 3,
+        "category": "bundles",
+        "title": "MOZA R3 (PC/XBOX)",
+        "price": 46000,
+        "image": "bundles/mozar3xb.jpg",
+        "brand": "moza",
+        "description": "Полный набор для начинающих с рулевой базой 3 Нм, педалями SR-P Lite и рулём ES. Для PC/XBOX, а также можно прикрепить к столу."
+    },
+    {
+        "id": 4,
+        "category": "bundles",
+        "title": "MOZA R5 Truck",
+        "price": 60000,
+        "image": "bundles/mozar5trk.jpg",
+        "brand": "moza",
+        "description": "Полный набор для дальнобоев с рулевой базой 5 Нм, педалями SR-P Lite и рулём ES. Совместимо с ПК, а также можно прикрепить к столу."
+    },
+    {
+        "id": 5,
+        "category": "bundles",
+        "title": "Conspit Ares 290GP",
+        "price": 154000,
+        "image": "bundles/conspit290gp.jpg",
+        "brand": "conspit",
+        "description": "Комплект для крепких середнячков с рулевой базой 10 Нм и рулём Conspit 290GP. Без педалей. Совместимо с ПК. Крепится только к кокпиту/стойке."
+    },
+    {
+        "id": 6,
+        "category": "bundles",
+        "title": "Conspit Ares Platinum RX320",
+        "price": 160000,
+        "image": "bundles/conspitrx320.jpg",
+        "brand": "conspit",
+        "description": "Флагманский набор для профессионалов с рулевой базой 18 Нм, и рулём Conspit RX320. Совместимо с ПК. Крепится только к кокпиту/стойке."
+        
+    },
+    {
+        "id": 7,
+        "category": "bundles",
+        "title": "Simagic Alpha EVO GT Pro Leather + P1000-RS",
+        "price": 143000,
+        "image": "bundles/evogtpro.jpg",
+        "brand": "simagic",
+        "description": "Топовый набор для кибергонщиков с рулевой базой 12 Нм, педалями P1000-RS и рулём Simagic GT Pro Leather. Совместимо с ПК. Крепится к кокпиту/стойке, но можно докупить крепление к столу."
+        
+    },
+    {
+        "id": 8,
+        "category": "bundles",
+        "title": "Simagic Alpha EVO Sport GT Neo",
+        "price": 78000,
+        "image": "bundles/evosportgtneo.jpg",
+        "brand": "simagic",
+        "description": "Комплект для кибергонщиков с рулевой базой 9 Нм и рулём Simagic GT Neo. Совместимо с ПК. Крепится к кокпиту/стойке, но можно докупить крепление к столу."
+        
+    },
+    {
+        "id": 9,
+        "category": "bundles",
+        "title": "Simagic Alpha GT4 + P2000-R",
+        "price": 191000,
+        "image": "bundles/alphagt4.png",
+        "brand": "simagic",
+        "description": "Полный комплект для PRO-симрейсеров с рулевой базой 15 Нм, гидравлическими педалями P2000-R и рулём Simagic GT4. Совместимо с ПК. Крепится к кокпиту/стойке, но можно докупить крепление к столу."
+    }
+]

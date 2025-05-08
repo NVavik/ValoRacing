@@ -104,17 +104,44 @@
             <div class="col-md-9">
                 <div class="row row-cols-1 row-cols-md-3 g-4">
                     {% for product in products if product.category == 'bundles' %}
-                    <div class="col" data-brand="{{ product.brand|lower }}" data-price="{{ product.price }}">
-                        <div class="card">
-                            <img src="{{ url_for('static', filename='data/' + product.image) }}" class="card-img-top" alt="...">
+                    <div class="col">
+                        <div class="card" data-bs-toggle="modal" data-bs-target="#productModal" data-description="{{ product.description }}">
+                            <img src="{{ url_for('static', filename='data/' + product.image) }}" class="card-img-top" alt="{{ product.title }}">
                             <div class="card-body">
                                 <h5 class="card-title">{{ product.title }}</h5>
-                                <p class="card-text">{{ product.price|int }} руб.</p>
-                                <small class="text-muted">{{ product.brand|upper }}</small>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <p class="card-text mb-0">{{ product.price|int }} руб.</p>
+                                    <small class="text-muted">{{ product.brand|upper }}</small>
+                                </div>
                             </div>
                         </div>
                     </div>
                     {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="productModal" tabindex="-1" aria-labelledby="productModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="productModalLabel"></h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <img id="productImage" src="" class="img-fluid" alt="Фото товара">
+                        </div>
+                        <div class="col-md-6">
+                            <h4 id="productPrice" class="mb-4"></h4>
+                            <div id="productDescription" class="mb-4"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрыть</button>
+                    <button type="button" class="btn btn-primary">Купить</button>
                 </div>
             </div>
         </div>
@@ -152,6 +179,24 @@
     </footer>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js" integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq" crossorigin="anonymous"></script>
     <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const cards = document.querySelectorAll('.col');
+
+            cards.forEach(card => {
+                card.addEventListener('click', function() {
+                    const productData = {
+                        title: this.querySelector('.card-title').textContent,
+                        price: this.querySelector('.card-text').textContent,
+                        image: this.querySelector('img').src,
+                        description: this.querySelector('.card').getAttribute('data-description')
+                    };
+                    document.getElementById('productModalLabel').textContent = productData.title;
+                    document.getElementById('productPrice').textContent = productData.price;
+                    document.getElementById('productImage').src = productData.image;
+                    document.getElementById('productDescription').textContent = productData.description || 'Описание отсутствует';
+                });
+            });
+        });
         function applyFilter() {
             const priceFrom = parseFloat(document.getElementById('priceFrom').value) || 0;
             const priceTo = parseFloat(document.getElementById('priceTo').value) || Infinity;
