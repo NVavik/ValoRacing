@@ -139,22 +139,46 @@ def bundles():
 
 @app.route('/wheelbase')
 def wheelbase():
-    return render_template('wheelbase.html')
+    try:
+        with open('static/data/products.json', 'r', encoding='utf-8') as f:
+            products = json.load(f)
+    except (FileNotFoundError, json.JSONDecodeError) as e:
+        print(f"Error loading products: {str(e)}")
+        products = []
+    return render_template('wheelbase.html', products=products, current_category='wheelbases')
 
 
 @app.route('/wheels')
 def wheels():
-    return render_template('wheels.html')
+    try:
+        with open('static/data/products.json', 'r', encoding='utf-8') as f:
+            products = json.load(f)
+    except (FileNotFoundError, json.JSONDecodeError) as e:
+        print(f"Error loading products: {str(e)}")
+        products = []
+    return render_template('wheels.html', products=products, current_category='wheels')
 
 
 @app.route('/pedals')
 def pedals():
-    return render_template('pedals.html')
+    try:
+        with open('static/data/products.json', 'r', encoding='utf-8') as f:
+            products = json.load(f)
+    except (FileNotFoundError, json.JSONDecodeError) as e:
+        print(f"Error loading products: {str(e)}")
+        products = []
+    return render_template('pedals.html', products=products, current_category='pedals')
 
 
 @app.route('/addons')
 def addons():
-    return render_template('addons.html')
+    try:
+        with open('static/data/products.json', 'r', encoding='utf-8') as f:
+            products = json.load(f)
+    except (FileNotFoundError, json.JSONDecodeError) as e:
+        print(f"Error loading products: {str(e)}")
+        products = []
+    return render_template('addons.html', products=products, current_category='addons')
 
 
 @app.route('/cockpits')

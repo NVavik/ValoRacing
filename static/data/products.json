@@ -6,7 +6,7 @@
         "price": 44200,
         "image": "bundles/mozar5.jpg",
         "brand": "moza",
-        "description": "Полный набор для начинающих с рулевой базой 5 Нм, педалями SR-P Lite и рулём ES. Совместимо с ПК, а также можно прикрепить к столу."
+        "description": "Полный набор для начинающих с рулевой базой 5 Нм, педалями SR-P Lite и рулём ES. Совместимо с ПК, а также можно прикрепить к столу. База не совместима с рулем CS v1"
         
     },
     {
@@ -16,7 +16,7 @@
         "price": 33000,
         "image": "bundles/mozar3.jpg",
         "brand": "moza",
-        "description": "Бюджетный набор для начинающих с рулевой базой 3 Нм, педалями SR-P Lite и рулём ES. Совместимо с ПК, а также можно прикрепить к столу."
+        "description": "Бюджетный набор для начинающих с рулевой базой 3.9 Нм, педалями SR-P Lite и рулём ES. Совместимо с ПК, а также можно прикрепить к столу. Не совместимо с рулями CS, RS GS v1 и дашбордом RM."
     },
     {
         "id": 3,
@@ -25,7 +25,7 @@
         "price": 46000,
         "image": "bundles/mozar3xb.jpg",
         "brand": "moza",
-        "description": "Полный набор для начинающих с рулевой базой 3 Нм, педалями SR-P Lite и рулём ES. Для PC/XBOX, а также можно прикрепить к столу."
+        "description": "Полный набор для начинающих с рулевой базой 3.9 Нм, педалями SR-P Lite и рулём ES. Для PC/XBOX, а также можно прикрепить к столу. Не совместимо с рулями CS, RS GS v1 и дашбордом RM."
     },
     {
         "id": 4,
@@ -83,5 +83,245 @@
         "image": "bundles/alphagt4.png",
         "brand": "simagic",
         "description": "Полный комплект для PRO-симрейсеров с рулевой базой 15 Нм, гидравлическими педалями P2000-R и рулём Simagic GT4. Совместимо с ПК. Крепится к кокпиту/стойке, но можно докупить крепление к столу."
+    },
+    {
+        "id": 10,
+        "category": "wheels",
+        "title": "MOZA Racing KS",
+        "price": 30000,
+        "image": "wheels/mozaks.png",
+        "brand": "moza",
+        "description": "Легкий полукарбоновый 300-миллиметровый штурвал для тех, кто хочет почувствовать себя пилотом Формулы-1. Подключается только к базам Moza."
+
+    },
+    {
+        "id": 11,
+        "category": "wheels",
+        "title": "MOZA Racing TSW - 400мм",
+        "price": 30000,
+        "image": "wheels/mozatrk.jpg",
+        "brand": "moza",
+        "description": "Кожаный MOZA TSW — первый в мире руль, разработанный для симуляторов грузовых автомобилей, соответствует реальным размерам руля грузовика. Работает с базами сторонних производителей через хаб MOZA."
+
+    },
+    {
+        "id": 12,
+        "category": "wheels",
+        "title": "MOZA Racing ESX",
+        "price": 16000,
+        "image": "wheels/mozaesx.jpg",
+        "brand": "moza",
+        "description": "Лёгкий и прочный руль из алюминия для гонок и не только, для консольщиков и обладателей ПК. 22 кнопки. Подключается только к базам Moza."
+
+    },
+    {
+        "id": 13,
+        "category": "wheels",
+        "title": "MOZA Racing ES",
+        "price": 14000,
+        "image": "wheels/mozaes.jpg",
+        "brand": "moza",
+        "description": "Лёгкий и прочный руль из алюминия для гонок и не только, для обладателей ПК. 22 кнопки. Подключается только к базам Moza."
+
+    },
+    {
+        "id": 14,
+        "category": "wheels",
+        "title": "MOZA Racing FSR2",
+        "price": 68700,
+        "image": "wheels/mozafsr2.jpg",
+        "brand": "moza",
+        "description": "Штурвал для энтузиастов с сенсорным экраном и 6 карбоновыми подрулевыми лепестками на датчиках Холла, множеством кнопок и энкодеров (крутилок). Работает с базами сторонних производителей через хаб MOZA."
+
+    },
+    {
+        "id": 15,
+        "category": "wheels",
+        "title": "Simagic GT-Neo",
+        "price": 32500,
+        "image": "wheels/gtneo.jpg",
+        "brand": "simagic",
+        "description": "Почувствуй себя пилотом Формулы-1 с 300-миллиметровым GT Neo. Есть поддержка MagLink для подключения к сторонним базам и подключение по CAN-шине к базам серии Simagic Alpha Evo."
+
+    },
+    {
+        "id": 16,
+        "category": "wheels",
+        "title": "Simagic FX Pro Formula",
+        "price": 41000,
+        "image": "wheels/fxpro.png",
+        "brand": "simagic",
+        "description": "Легкий 290-миллиметровый штурвал с экраном 4,3 дюйма. Карбоновая передняя панель и лепестки. Для работы со сторонними базами требуется витой кабель."
+
+    },
+    {
+        "id": 17,
+        "category": "wheels",
+        "title": "Simagic GT1",
+        "price": 33600,
+        "image": "wheels/gt1.jpg",
+        "brand": "simagic",
+        "description": "Круглая кожаная баранка диаметром 330 миллиметров. Для работы со сторонними базами требуется витой кабель."
+
+    },
+    {
+        "id": 18,
+        "category": "wheels",
+        "title": "Simagic GTS",
+        "price": 30300,
+        "image": "wheels/gts.jpg",
+        "brand": "simagic",
+        "description": "Круглая кожаная баранка диаметром 300 миллиметров. Для работы со сторонними базами требуется витой кабель."
+
+    },
+    {
+        "id": 19,
+        "category": "wheels",
+        "title": "Conspit 290GP",
+        "price": 30300,
+        "image": "wheels/conspit290gp.jpg",
+        "brand": "conspit",
+        "description": "Легкий и прочный полукарбоновый штурвал в концепции CONSPIT «N+1» с кнопками ErgoTouch и запатентованными системами: MagFlip для подрулевых лепестков и Thump-Tick для колесика под большой палец."
+
+    },
+    {
+        "id": 20,
+        "category": "wheels",
+        "title": "Conspit PW1",
+        "price": 248300,
+        "image": "wheels/conspitpw1.jpg",
+        "brand": "conspit",
+        "description": "Карбоновый штурвал PW1 - будто реплика руля Ferrari SF1000. Вес - 2,7 кг, 2-дюймовый AMOLED экран, магнитные лепестки и рычаг сцепления с двумя режимами работы (двойное, рычажное). Подключается только к базам Conspit по CAN-шине."
+
+    },
+    {
+        "id": 21,
+        "category": "wheels",
+        "title": "GRID Porsche 911 RSR Official Licensed",
+        "price": 30300,
+        "image": "wheels/GRIDRSR3.jpg",
+        "brand": "grid",
+        "description": "Официально лицензированный штурвал Porsche 911 RSR с 5-дюймовым LCD экраном, 3-режимными лепестками сцепления и 4 магнитными подрулевыми лепестками переключения передач. В комплекте переходник для адаптера QR (Quick Release) с 50,8 на 70 мм. Адаптер QR докупается отдельно. Подключение только к ПК через разъем Lumberg 6-pin."
+
+    },
+    {
+        "id": 22,
+        "category": "wheelbases",
+        "title": "Conspit Ares (10 Nm)",
+        "price": 63200,
+        "image": "wheelbases/conspitares.jpg",
+        "brand": "conspit",
+        "description": "База мощностью 10 Нм с 23-битным опт. энкодером даёт точный контроль виртуального авто. Алгоритмы обратной связи разрабатывались с Open FFBoard, а также есть функция защиты рук. Также в модуль POGO можно вставить аксессуары Conspit, а настроить всё через Conspit Link 2.0. Система CDP QR заимствованна из болидов Формулы-1. Совместимость и крепление: ПК и кокпит."
+
+    },
+    {
+        "id": 23,
+        "category": "wheelbases",
+        "title": "Conspit Ares Platinum (18 Nm)",
+        "price": 91300,
+        "image": "wheelbases/conspitarespl.jpg",
+        "brand": "conspit",
+        "description": "База мощностью 18 Нм с 23-битным опт. энкодером даёт точный контроль виртуального авто. Алгоритмы обратной связи разрабатывались с Open FFBoard, а также есть функция защиты рук. Также в модуль POGO можно вставить аксессуары Conspit, а настроить всё через Conspit Link 2.0. Система CDP QR заимствованна из болидов Формулы-1. Совместимость и крепление: ПК и кокпит."
+
+    },
+    {
+        "id": 24,
+        "category": "wheelbases",
+        "title": "MOZA Racing R16 V2",
+        "price": 73000,
+        "image": "wheelbases/mozar16v2.jpg",
+        "brand": "moza",
+        "description": "2 версия топовой базы R16 мощностью 16 Нм с NexGen FFB 4.0. Настройка идёт через MOZA PitHouse или через приложение на смартфоне. Рекомендуется крепить на кокпит. Также есть функция защиты рук. Отдельно можно докупить Kill Switch для удобного/аварийного выключения базы. Не совместимо с педалями SR-P Lite и рулём ES. Совместимость: ПК."
+
+    },
+    {
+        "id": 25,
+        "category": "wheelbases",
+        "title": "MOZA Racing R21 V2",
+        "price": 83000,
+        "image": "wheelbases/mozar21v2.png",
+        "brand": "moza",
+        "description": "2 версия флагманской базы R21 мощностью 21 Нм с NexGen FFB 4.0. Настройка идёт через MOZA PitHouse или через приложение на смартфоне. Рекомендуется крепить на кокпит. Также есть функция защиты рук. Отдельно можно докупить Kill Switch для удобного/аварийного выключения базы. Не совместимо с педалями SR-P Lite и рулём ES. Совместимость: ПК."
+
+    },
+    {
+        "id": 26,
+        "category": "wheelbases",
+        "title": "MOZA Racing R12 V2",
+        "price": 53000,
+        "image": "wheelbases/mozar12v2.png",
+        "brand": "moza",
+        "description": "2 версия Direct Drive базы R12 12 Нм с NexGen FFB 4.0. Настройка идёт через MOZA PitHouse или через приложение на смартфоне. Рекомендуется крепить на кокпит. Также есть функция защиты рук. Отдельно можно докупить Kill Switch для удобного/аварийного выключения базы. Не совместимо с рулями GS/CS v1. Совместимость: ПК."
+
+    },
+    {
+        "id": 27,
+        "category": "wheelbases",
+        "title": "MOZA Racing R9 V3",
+        "price": 40000,
+        "image": "wheelbases/mozar9v3.png",
+        "brand": "moza",
+        "description": "3 версия Direct Drive базы R9 мощностью 9 Нм с NexGen FFB 4.0. Настройка идёт через MOZA PitHouse или через приложение на смартфоне. Рекомендуется крепить на кокпит. Также есть функция защиты рук. Отдельно можно докупить Kill Switch для удобного/аварийного выключения базы. Не совместимо с рулями GS/CS v1 и педалями SR-P Lite. Совместимость: ПК."
+
+    },
+    {
+        "id": 28,
+        "category": "wheelbases",
+        "title": "Simucube 2 Sport (17 Nm)",
+        "price": 171000,
+        "image": "wheelbases/simucube2sport.jpg",
+        "brand": "simucube",
+        "description": "Финская Sport-база для PRO-симрейсеров. Настраивается через софт Simucube True Drive, а подключается к совместимым рулям через антенну сзади. Крепится только к кокпиту. Рекомендуется докупить Kill Switch. Ответная часть ступицы (часть к рулю) приобретается отдельно. Совместимость: ПК."
+
+    },
+    {
+        "id": 29,
+        "category": "wheelbases",
+        "title": "Simucube 2 Pro (25 Nm)",
+        "price": 205000,
+        "image": "wheelbases/simucube2pro.jpg",
+        "brand": "simucube",
+        "description": "Финская супербыстрая Pro-база для PRO-симрейсеров. Настраивается через софт Simucube True Drive, а подключается к совместимым рулям через антенну сзади. Крепится только к кокпиту. Рекомендуется докупить Kill Switch. Ответная часть ступицы (часть к рулю) приобретается отдельно. Совместимость: ПК."
+
+    },
+    {
+        "id": 30,
+        "category": "wheelbases",
+        "title": "Simucube 2 Ultimate (32 Nm)",
+        "price": 421000,
+        "image": "wheelbases/simucube2ult.jpg",
+        "brand": "simucube",
+        "description": "Финская сверхмощная Ultimate-база для PRO-симрейсеров. Настраивается через софт Simucube True Drive, а подключается к совместимым рулям через антенну сзади. Крепится только к кокпиту. Kill Switch в комплекте. Ответная часть ступицы (часть к рулю) приобретается отдельно. Подключать напрямую к электросети! Совместимость: ПК."
+
+    },
+    {
+        "id": 21,
+        "category": "wheelbases",
+        "title": "Simagic Alpha Evo Sport (9 Nm)",
+        "price": 49000,
+        "image": "wheelbases/evosport.jpg",
+        "brand": "simagic",
+        "description": "Alpha Evo Sport - эволюция в линейке Simagic Alpha. Сверхнизкая инерция, новое поколение динамической фильтрации FFB, отсутствие зубчатости и активное охлаждение. Теперь кнопка включения на базе и множество портов USB/RJ45. Можно подключать новые рули серии NEO по CAN-шине и крепить базу на стол. Совместимость: ПК."
+
+    },
+    {
+        "id": 21,
+        "category": "wheelbases",
+        "title": "Simagic Alpha Evo (12 Nm)",
+        "price": 66000,
+        "image": "wheelbases/evos.png",
+        "brand": "simagic",
+        "description": "Alpha Evo - эволюция в линейке Simagic Alpha. Сверхнизкая инерция, новое поколение динамической фильтрации FFB, отсутствие зубчатости и активное охлаждение. Теперь кнопка включения на базе и множество портов USB/RJ45. Можно подключать новые рули серии NEO по CAN-шине и крепить базу на стол. Совместимость: ПК."
+
+    },
+    {
+        "id": 21,
+        "category": "wheelbases",
+        "title": "Simagic Alpha Evo Pro (18 Nm)",
+        "price": 84000,
+        "image": "wheelbases/evopro.png",
+        "brand": "simagic",
+        "description": "Alpha Evo Pro - эволюция в линейке Simagic Alpha. Сверхнизкая инерция, новое поколение динамической фильтрации FFB, отсутствие зубчатости и активное охлаждение. Теперь кнопка включения на базе и множество портов USB/RJ45. Yовые рули серии NEO подключаются по CAN-шине и крепить базу на стол. Совместимость: ПК."
+
     }
 ]
