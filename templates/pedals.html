@@ -221,21 +221,38 @@
     </footer>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js" integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq" crossorigin="anonymous"></script>
     <script>
-        function applyFilter() {
-            const priceFrom = parseFloat(document.getElementById('priceFrom').value) || 0;
-            const priceTo = parseFloat(document.getElementById('priceTo').value) || Infinity;
+        document.addEventListener('DOMContentLoaded', function() {
             const cards = document.querySelectorAll('.col');
-
             cards.forEach(card => {
-                const priceText = card.querySelector('.card-text').textContent;
-                const price = parseFloat(priceText.replace(/[^\d,]/g, '').replace(',', '.'));
-
-                if (price >= priceFrom && price <= priceTo) {
-                    card.style.display = 'block';
-                } else {
-                    card.style.display = 'none';
-                }
+                card.addEventListener('click', function() {
+                    const productData = {
+                        title: this.querySelector('.card-title').textContent,
+                        price: this.querySelector('.card-text').textContent,
+                        image: this.querySelector('img').src,
+                        description: this.querySelector('.card').getAttribute('data-description')
+                    };
+                    document.getElementById('productModalLabel').textContent = productData.title;
+                    document.getElementById('productPrice').textContent = productData.price;
+                    document.getElementById('productImage').src = productData.image;
+                    document.getElementById('productDescription').textContent = productData.description || 'Описание отсутствует';
+                });
             });
+
+            document.getElementById('productModal').addEventListener('shown.bs.modal', function() {
+                document.querySelector('#productModal .btn-primary').addEventListener('click', function() {
+                    const productTitle = document.getElementById('productModalLabel').textContent;
+                    const confirmPurchase = confirm(`Спасибо за выбор ${productTitle}! Собираем заказ.`);
+                    console.log(`BOX-BOX-BOX!`)
+                });
+            });
+        });
+        function openWhatsApp() {
+            const productTitle = document.getElementById('productModalLabel').textContent;
+            const phoneNumber = '+79513720274'; // Ваш номер в формате 79991234567
+            const message = `Здравствуйте! Хочу заказать: ${productTitle}`;
+            const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+            window.open(whatsappUrl, '_blank');
+            bootstrap.Modal.getInstance(document.getElementById('productModal')).hide();
         }
         function applyFilter() {
             const priceFrom = parseFloat(document.getElementById('priceFrom').value) || 0;

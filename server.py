@@ -64,6 +64,7 @@ def regsign():
                 'email': request.form['email'],
                 'password': hash_password(request.form['password']),  # Хешируем пароль
                 'city': request.form.get('city', ''),
+                'telnum': request.form.get('telnum', ''),
                 'postal_code': request.form.get('postalCode', '')
             }
 

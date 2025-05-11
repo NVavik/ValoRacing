@@ -145,7 +145,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрыть</button>
-                    <button type="button" class="btn btn-primary">Купить</button>
+                    <button type="button" class="btn btn-primary" onclick="openWhatsApp()">Купить</button>
                 </div>
             </div>
         </div>
@@ -188,7 +188,6 @@
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const cards = document.querySelectorAll('.col');
-
             cards.forEach(card => {
                 card.addEventListener('click', function() {
                     const productData = {
@@ -203,22 +202,22 @@
                     document.getElementById('productDescription').textContent = productData.description || 'Описание отсутствует';
                 });
             });
-        });
-        function applyFilter() {
-            const priceFrom = parseFloat(document.getElementById('priceFrom').value) || 0;
-            const priceTo = parseFloat(document.getElementById('priceTo').value) || Infinity;
-            const cards = document.querySelectorAll('.col');
 
-            cards.forEach(card => {
-                const priceText = card.querySelector('.card-text').textContent;
-                const price = parseFloat(priceText.replace(/[^\d,]/g, '').replace(',', '.'));
-
-                if (price >= priceFrom && price <= priceTo) {
-                    card.style.display = 'block';
-                } else {
-                    card.style.display = 'none';
-                }
+            document.getElementById('productModal').addEventListener('shown.bs.modal', function() {
+                document.querySelector('#productModal .btn-primary').addEventListener('click', function() {
+                    const productTitle = document.getElementById('productModalLabel').textContent;
+                    const confirmPurchase = confirm(`Спасибо за выбор ${productTitle}! Собираем заказ.`);
+                    console.log(`BOX-BOX-BOX!`)
+                });
             });
+        });
+        function openWhatsApp() {
+            const productTitle = document.getElementById('productModalLabel').textContent;
+            const phoneNumber = '+79513720274'; // Ваш номер в формате 79991234567
+            const message = `Здравствуйте! Хочу заказать: ${productTitle}`;
+            const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+            window.open(whatsappUrl, '_blank');
+            bootstrap.Modal.getInstance(document.getElementById('productModal')).hide();
         }
         function applyFilter() {
             const priceFrom = parseFloat(document.getElementById('priceFrom').value) || 0;

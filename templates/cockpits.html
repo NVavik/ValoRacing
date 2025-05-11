@@ -111,47 +111,5 @@
     <!-- Elfsight All-in-One Chat | Untitled All-in-One Chat -->
     <script src="https://static.elfsight.com/platform/platform.js" async></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js" integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq" crossorigin="anonymous"></script>
-    <script>
-        function applyFilter() {
-            const priceFrom = parseFloat(document.getElementById('priceFrom').value) || 0;
-            const priceTo = parseFloat(document.getElementById('priceTo').value) || Infinity;
-            const cards = document.querySelectorAll('.col');
-
-            cards.forEach(card => {
-                const priceText = card.querySelector('.card-text').textContent;
-                const price = parseFloat(priceText.replace(/[^\d,]/g, '').replace(',', '.'));
-
-                if (price >= priceFrom && price <= priceTo) {
-                    card.style.display = 'block';
-                } else {
-                    card.style.display = 'none';
-                }
-            });
-        }
-        function applyFilter() {
-            const priceFrom = parseFloat(document.getElementById('priceFrom').value) || 0;
-            const priceTo = parseFloat(document.getElementById('priceTo').value) || Infinity;
-            const selectedBrand = document.querySelector('input[name="brand"]:checked')?.value || 'all';
-            const cards = document.querySelectorAll('.col');
-
-            cards.forEach(card => {
-                const priceText = card.querySelector('.card-text').textContent;
-                const price = parseFloat(priceText.replace(/[^\d,]/g, '').replace(',', '.'));
-                const title = card.querySelector('.card-title').textContent.toLowerCase();
-                const priceMatch = price >= priceFrom && price <= priceTo;
-                let brandMatch = true;
-
-                if (selectedBrand !== 'all') {
-                    brandMatch = title.includes(selectedBrand.toLowerCase());
-                }
-
-                if (priceMatch && brandMatch) {
-                    card.style.display = 'block';
-                } else {
-                    card.style.display = 'none';
-                }
-            });
-        }
-    </script>
 </body>
 </html>
