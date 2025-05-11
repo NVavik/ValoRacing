@@ -201,6 +201,11 @@ def about():
     return render_template('about.html')
 
 
+@app.route('/cart')
+def cart():
+    return render_template('cart.html')
+
+
 if __name__ == '__main__':
     if not os.path.exists(DATABASE):
         init_db()

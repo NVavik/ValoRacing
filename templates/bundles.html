@@ -141,7 +141,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрыть</button>
-                    <button type="button" class="btn btn-primary">Купить</button>
+                    <button type="button" class="btn btn-primary" onclick="openWhatsApp()">Купить</button>
                 </div>
             </div>
         </div>
@@ -210,7 +210,7 @@
         function openWhatsApp() {
             const productTitle = document.getElementById('productModalLabel').textContent;
             const phoneNumber = '+79513720274'; // Ваш номер в формате 79991234567
-            const message = `Здравствуйте! Хочу заказать: ${productTitle}`;
+            const message = `Здравствуйте! Присмотрелся к: ${productTitle}. Хочу заказать!`;
             const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
             window.open(whatsappUrl, '_blank');
             bootstrap.Modal.getInstance(document.getElementById('productModal')).hide();
