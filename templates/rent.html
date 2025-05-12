@@ -17,7 +17,7 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Статьи и новости</a>
+                        <a class="nav-link disabled" href="#">Статьи и новости</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -40,7 +40,7 @@
                     </li>
                 </ul>
                 {% if session.get('username') %}
-                <span class="navbar-text text-white me-2">{{ session['username'] }}</span>
+                <span class="navbar-text text-white me-2" id="username">{{ session['username'] }}</span>
                 <button  class="btn btn-outline-danger ms-1">
                     <a href="/logout" style="text-decoration: none;">Выйти</a>
                 </button>
@@ -67,6 +67,11 @@
                             <span class="fw-bold">1600 руб/день</span><br>
                             Direct Drive R5 5Nm, педали SR-P Lite, руль ES, совместимо с ПК
                         </p>
+                        {% if session.get('username') %}
+                            <button class="btn btn-success rent-btn" data-name="MOZA R5 Bundle">Арендовать</button>
+                        {% else %}
+                            <button class="btn btn-danger disabled">Только для авторизованных пользователей</button>
+                        {% endif %}
                     </div>
                 </div>
             </div>
@@ -79,6 +84,11 @@
                             <span class="fw-bold">1500 руб/день</span><br>
                             Direct Drive база R3 3Nm, педали SR-P Lite, руль ESX, совместимо с ПК/XBOX
                         </p>
+                        {% if session.get('username') %}
+                            <button class="btn btn-success rent-btn" data-name="MOZA R3 XBOX">Арендовать</button>
+                        {% else %}
+                            <button class="btn btn-danger disabled">Только для авторизованных пользователей</button>
+                        {% endif %}
                     </div>
                 </div>
             </div>
@@ -91,6 +101,11 @@
                             <span class="fw-bold">900 руб/день</span><br>
                             Direct Drive база с обратной связью 5Nm, совместимо с ПК
                         </p>
+                        {% if session.get('username') %}
+                            <button class="btn btn-success rent-btn" data-name="Cammus C5">Арендовать</button>
+                        {% else %}
+                            <button class="btn btn-danger disabled">Только для авторизованных пользователей</button>
+                        {% endif %}
                     </div>
                 </div>
             </div>
@@ -115,7 +130,6 @@
                         <p>📞 +7 (991) 163-44-33 <a href="#"><img src="static/data/svg/whatsapp.svg"></a><a href="#"><img src="static/data/svg/telegram.svg"></a></p>
                         <p>✉️ info@valoracing.com</p>
                         <p>📍 Самовывоз: г. Новосибирск ул. Макса Ферстаппена, 33</p>
-                        <a href="#" class="btn btn-success mt-3">Оставить заявку</a>
                     </div>
                 </div>
             </div>
@@ -141,7 +155,7 @@
             <div class="row mt-3">
                 <div class="col-md-6">
                     <h5>Как купить</h5>
-                    <p><a href="#"><img src="static/data/svg/whatsapp.svg"></a><a href="#"><img src="static/data/svg/telegram.svg"></a><br>+7 (991) 163-44-33</p>
+                    <p><img src="static/data/svg/whatsapp.svg"><img src="static/data/svg/telegram.svg"><br>+7 (951) 372-02-74</p>
                 </div>
                 <div class="col-md-6">
                     <h5>Контакты</h5>
@@ -156,5 +170,21 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js" integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq" crossorigin="anonymous"></script>
     <!-- Elfsight All-in-One Chat | Untitled All-in-One Chat -->
     <script src="https://static.elfsight.com/platform/platform.js" async></script>
+    <script>
+        document.querySelectorAll('.rent-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const productName = this.dataset.name;
+                const usernameEl = document.getElementById('username');
+                const username = usernameEl ? usernameEl.textContent : null;
+                const phoneNumber = '+79513720274';
+                let message = `Хочу арендовать ${productName}`;
+                if (username) {
+                    message += `\nИмя пользователя: ${username}`;
+                }
+                const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+                window.open(whatsappUrl, '_blank');
+            });
+        });
+    </script>
 </body>
 </html>

@@ -18,7 +18,7 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Статьи и новости</a>
+                        <a class="nav-link disabled" href="#">Статьи и новости</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -144,6 +144,7 @@
                     </div>
                 </div>
                 <div class="modal-footer">
+                    <p style="color: grey">При регистрации скидка 5% на 1 покупку</p>
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрыть</button>
                     <button type="button" class="btn btn-primary" onclick="openWhatsApp()">Купить</button>
                 </div>
@@ -160,7 +161,7 @@
                 </div>
                 <div class="col-md-4">
                     <h5>Аренда симуляторов</h5>
-                    <p>MOZA R5<br>MOZA R3 XBOX<br>Cammus C5</p>
+                    <p>MOZA R5<br>Cammus C5<br>MOZA R3</p>
                 </div>
                 <div class="col-md-4">
                     <h5>Адрес</h5>
@@ -170,11 +171,11 @@
             <div class="row mt-3">
                 <div class="col-md-6">
                     <h5>Как купить</h5>
-                    <p><a href="#"><img src="static/data/svg/whatsapp.svg"></a><a href="#"><img src="static/data/svg/telegram.svg"></a><br>+7 (991) 163-44-33</p>
+                    <p><img src="static/data/svg/whatsapp.svg"><img src="static/data/svg/telegram.svg"><br>+7 (951) 372-02-74</p>
                 </div>
                 <div class="col-md-6">
                     <h5>Контакты</h5>
-                    <p>Email: info@valoracing.com<br>📱 +7 (991) 163-44-33<br>📱 +7 (478) 144-11-31</p>
+                    <p>Email: info@valoracing.com<br>📱+7 (478) 144-11-31<br>📱+7 (951) 372-02-74</p>
                 </div>
             </div>
             <div class="text-center mt-4">
@@ -187,7 +188,7 @@
     <script src="https://static.elfsight.com/platform/platform.js" async></script>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            const cards = document.querySelectorAll('.col');
+            let cards = document.querySelectorAll('.col');
             cards.forEach(card => {
                 card.addEventListener('click', function() {
                     const productData = {
@@ -202,19 +203,16 @@
                     document.getElementById('productDescription').textContent = productData.description || 'Описание отсутствует';
                 });
             });
-
-            document.getElementById('productModal').addEventListener('shown.bs.modal', function() {
-                document.querySelector('#productModal .btn-primary').addEventListener('click', function() {
-                    const productTitle = document.getElementById('productModalLabel').textContent;
-                    const confirmPurchase = confirm(`Спасибо за выбор ${productTitle}! Собираем заказ.`);
-                    console.log(`BOX-BOX-BOX!`)
-                });
-            });
         });
         function openWhatsApp() {
             const productTitle = document.getElementById('productModalLabel').textContent;
-            const phoneNumber = '+79513720274'; // Ваш номер в формате 79991234567
-            const message = `Здравствуйте! Хочу заказать: ${productTitle}`;
+            const usernameEl = document.getElementById('username');
+            const username = usernameEl ? usernameEl.textContent : null;
+            const phoneNumber = '+79513720274';
+            let message = `Здравствуйте! Хочу заказать: ${productTitle}.`;
+            if (username) {
+                message += `\nИмя пользователя: ${username}`;
+            }
             const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
             window.open(whatsappUrl, '_blank');
             bootstrap.Modal.getInstance(document.getElementById('productModal')).hide();
