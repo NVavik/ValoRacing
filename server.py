@@ -4,7 +4,6 @@ import hashlib
 import os
 import json
 
-
 app = Flask(__name__)
 app.secret_key = 'your_secret_key_here'
 DATABASE = 'users.db'
@@ -62,7 +61,8 @@ def regsign():
                 'last_name': request.form['lastName'],
                 'username': request.form['username'],
                 'email': request.form['email'],
-                'password': hash_password(request.form['password']),  # Хешируем пароль
+                'password':
+                hash_password(request.form['password']),  # Хешируем пароль
                 'city': request.form.get('city', ''),
                 'telnum': request.form.get('telnum', ''),
                 'postal_code': request.form.get('postalCode', '')
@@ -70,14 +70,17 @@ def regsign():
 
             db = get_db()
             cursor = db.cursor()
-            cursor.execute('''
+            cursor.execute(
+                '''
                 INSERT INTO users (first_name, last_name, username, email, password, city, postal_code)
                 VALUES (:first_name, :last_name, :username, :email, :password, :city, :postal_code)
             ''', user_data)
 
             db.commit()
-            session['message'] = 'Регистрация прошла успешно! Пожалуйста, войдите в систему.'
-            return redirect(url_for('login'))  # Перенаправляем на вход после регистрации
+            session[
+                'message'] = 'Регистрация прошла успешно! Пожалуйста, войдите в систему.'
+            return redirect(
+                url_for('login'))  # Перенаправляем на вход после регистрации
 
         except sqlite3.IntegrityError as e:
             error = "Ошибка регистрации: "
@@ -88,7 +91,9 @@ def regsign():
             else:
                 error += "Произошла ошибка в базе данных"
 
-            return render_template('reg.html', error=error, form_data=request.form)
+            return render_template('reg.html',
+                                   error=error,
+                                   form_data=request.form)
 
         except Exception as e:
             return render_template('reg.html',
@@ -106,7 +111,8 @@ def login():
 
         db = get_db()
         cursor = db.cursor()
-        cursor.execute('''
+        cursor.execute(
+            '''
             SELECT * FROM users WHERE username = ? AND password = ?
         ''', (username, hash_password(password)))
         user = cursor.fetchone()
@@ -116,16 +122,19 @@ def login():
             session['username'] = user['username']
             return redirect(url_for('index'))
         else:
-            return render_template('login.html', error="Неверные учетные данные")
+            return render_template('login.html',
+                                   error="Неверные учетные данные")
 
     # Проверяем, есть ли сообщение об успешной регистрации
     message = session.pop('message', None)
     return render_template('login.html', message=message)
 
+
 @app.route('/logout')
 def logout():
     session.clear()  # Очистка имени пользователя из сессии
     return redirect(url_for('index'))
+
 
 @app.route('/bundles')
 def bundles():
@@ -135,7 +144,9 @@ def bundles():
     except (FileNotFoundError, json.JSONDecodeError) as e:
         print(f"Error loading products: {str(e)}")
         products = []
-    return render_template('bundles.html', products=products, current_category='bundles')
+    return render_template('bundles.html',
+                           products=products,
+                           current_category='bundles')
 
 
 @app.route('/wheelbase')
@@ -146,7 +157,9 @@ def wheelbase():
     except (FileNotFoundError, json.JSONDecodeError) as e:
         print(f"Error loading products: {str(e)}")
         products = []
-    return render_template('wheelbase.html', products=products, current_category='wheelbases')
+    return render_template('wheelbase.html',
+                           products=products,
+                           current_category='wheelbases')
 
 
 @app.route('/wheels')
@@ -157,7 +170,9 @@ def wheels():
     except (FileNotFoundError, json.JSONDecodeError) as e:
         print(f"Error loading products: {str(e)}")
         products = []
-    return render_template('wheels.html', products=products, current_category='wheels')
+    return render_template('wheels.html',
+                           products=products,
+                           current_category='wheels')
 
 
 @app.route('/pedals')
@@ -168,7 +183,9 @@ def pedals():
     except (FileNotFoundError, json.JSONDecodeError) as e:
         print(f"Error loading products: {str(e)}")
         products = []
-    return render_template('pedals.html', products=products, current_category='pedals')
+    return render_template('pedals.html',
+                           products=products,
+                           current_category='pedals')
 
 
 @app.route('/addons')
@@ -179,7 +196,9 @@ def addons():
     except (FileNotFoundError, json.JSONDecodeError) as e:
         print(f"Error loading products: {str(e)}")
         products = []
-    return render_template('addons.html', products=products, current_category='addons')
+    return render_template('addons.html',
+                           products=products,
+                           current_category='addons')
 
 
 @app.route('/cockpits')
@@ -190,6 +209,7 @@ def cockpits():
 @app.route('/equip')
 def equip():
     return render_template('equip.html')
+
 
 @app.route('/rent')
 def rent():
