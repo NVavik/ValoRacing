@@ -1,0 +1,13 @@
+modules = ["web", "python-3.12"]
+run = "python3 server.py"
+
+[nix]
+channel = "stable-24_05"
+
+[deployment]
+run = ["sh", "-c", "server.py"]
+
+[[ports]]
+localPort = 5000
+externalPort = 5000
+exposeLocalhost = true
